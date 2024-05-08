@@ -124,9 +124,10 @@ console.log(charactersNames);
 */
 
 const femaleCharacters = [];
+
 for (let i = 0; i < starWarsCharacters.length; i++) {
   if (starWarsCharacters[i].gender === "female") {
-    femaleCharacters[i] = starWarsCharacters[i];
+    femaleCharacters.push(starWarsCharacters[i]);
   }
 }
 console.log(femaleCharacters);
@@ -167,8 +168,6 @@ for (i = 0; i < starWarsCharacters.length; i++) {
     case "blue-gray":
       eyeColor.blue_gray.push(starWarsCharacters[i]);
       break;
-    default:
-      console.log(starWarsCharacters[i].name + " non ha gli occhi");
   }
 }
 console.log(eyeColor);
@@ -177,13 +176,13 @@ console.log(eyeColor);
   Usa un while loop per calcolare la massa totale dell'equipaggio. Salvala in una variabile chiamata "crewMass".
 */
 
-let iMass = 0;
 let crewMass = 0;
+let iMass = 0;
 while (iMass < starWarsCharacters.length) {
   crewMass += starWarsCharacters[iMass].mass;
   iMass++;
 }
-console.log(crewMass);
+console.log("La massa totale è:", crewMass);
 
 /* ESERCIZIO 7
   Crea uno if/else statement per rivelare la tipologia di carico, utilizzando la massa totale, di un'ipotetica astronave contenente i personaggi dell'array "starWarsCharacters".
@@ -218,13 +217,23 @@ for (let i = 0; i < starWarsCharacters.length; i++) {
   if (starWarsCharacters[i].gender === "n/a") {
     starWarsCharacters[i].gender = "robot";
   }
-  console.log(starWarsCharacters[i].name, starWarsCharacters[i].gender);
+  console.log("Name:", starWarsCharacters[i].name, ", gender:", starWarsCharacters[i].gender);
 }
 
 /* --EXTRA-- ESERCIZIO 9
   Utilizzando gli elementi presenti nell'array "femaleCharacters" rimuovi dall'array "charactersNames" le stringhe corrispondenti a personaggi con lo stesso nome.
   Una volta fatto crea un console.log per controllare la proprietà length di "charactersNames" prima e dopo l'operazione.
 */
+
+console.log(charactersNames.length);
+for (let i = 0; i < charactersNames.length; i++) {
+  for (let k = 0; k < femaleCharacters.length; k++) {
+    if (charactersNames[i] === femaleCharacters[k].name) {
+      charactersNames.splice(i, 1);
+    }
+  }
+}
+console.log(charactersNames.length);
 
 /* --EXTRA-- ESERCIZIO 10
   Crea una funzionalità che selezioni un elemento casuale dall'array "starWarsCharacters" e ne stampi in console le proprietà in modo discorsivo (a tuo piacimento).
