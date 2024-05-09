@@ -197,7 +197,7 @@ console.log("La massa totale è:", crewMass);
 */
 
 crewMass = 1000;
-if (crewMass < 500) {
+if (crewMass <= 500) {
   console.log("Ship is under loaded");
 } else if (crewMass > 500 && crewMass < 700) {
   console.log("Ship is half loaded");
